@@ -1,0 +1,200 @@
+.yo-button-group {
+  --yo-button-group-border-color: var(--yo-border-color-lighter);
+}
+.yo-button {
+  --yo-button-font-weight: var(--yo-font-weight-primary);
+  --yo-button-border-color: var(--yo-border-color);
+  --yo-button-bg-color: var(--yo-fill-color-blank);
+  --yo-button-text-color: var(--yo-text-color-regular);
+  --yo-button-disabled-text-color: var(--yo-disabled-text-color);
+  --yo-button-disabled-bg-color: var(--yo-fill-color-blank);
+  --yo-button-disabled-border-color: var(--yo-border-color-light);
+  --yo-button-hover-text-color: var(--yo-color-primary);
+  --yo-button-hover-bg-color: var(--yo-color-primary-light-9);
+  --yo-button-hover-border-color: var(--yo-color-primary-light-7);
+  --yo-button-active-text-color: var(--yo-button-hover-text-color);
+  --yo-button-active-border-color: var(--yo-color-primary);
+  --yo-button-active-bg-color: var(--yo-button-hover-bg-color);
+  --yo-button-outline-color: var(--yo-color-primary-light-5);
+  --yo-button-active-color: var(--yo-text-color-primary);
+}
+
+.yo-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--yo-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--yo-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--yo-button-bg-color);
+  border: var(--yo-border);
+  border-color: var(--yo-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--yo-font-size-base);
+  border-radius: var(--yo-border-radius-base);
+  & + & {
+    margin-left: 12px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--yo-button-hover-text-color);
+    border-color: var(--yo-button-hover-border-color);
+    background-color: var(--yo-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--yo-button-active-text-color);
+    border-color: var(--yo-button-active-border-color);
+    background-color: var(--yo-button-active-bg-color);
+    outline: none;
+  }
+  /*plain*/
+  &.is-plain {
+    --yo-button-hover-text-color: var(--yo-color-primary);
+    --yo-button-hover-bg-color: var(--yo-fill-color-blank);
+    --yo-button-hover-border-color: var(--yo-color-primary);
+  }
+  /*round*/
+  &.is-round {
+    border-radius: var(--yo-border-radius-round);
+  }
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /*disabled*/
+  &.is-loading,
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--yo-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--yo-button-disabled-bg-color);
+    border-color: var(--yo-button-disabled-border-color);
+  }
+  [class*='yo-icon'] {
+    width: 1em;
+    height: 1em;
+  }
+}
+@each $val in primary, success, warning, info, danger {
+  .yo-button--$(val) {
+    --yo-button-text-color: var(--yo-color-white);
+    --yo-button-bg-color: var(--yo-color-$(val));
+    --yo-button-border-color: var(--yo-color-$(val));
+    --yo-button-outline-color: var(--yo-color-$(val)-light-5);
+    --yo-button-active-color: var(--yo-color-$(val)-dark-2);
+    --yo-button-hover-text-color: var(--yo-color-white);
+    --yo-button-hover-bg-color: var(--yo-color-$(val)-light-3);
+    --yo-button-hover-border-color: var(--yo-color-$(val)-light-3);
+    --yo-button-active-bg-color: var(--yo-color-$(val)-dark-2);
+    --yo-button-active-border-color: var(--yo-color-$(val)-dark-2);
+    --yo-button-disabled-text-color: var(--yo-color-white);
+    --yo-button-disabled-bg-color: var(--yo-color-$(val)-light-5);
+    --yo-button-disabled-border-color: var(--yo-color-$(val)-light-5);
+  }
+  .yo-button--$(val).is-plain {
+    --yo-button-text-color: var(--yo-color-$(val));
+    --yo-button-bg-color: var(--yo-color-$(val)-light-9);
+    --yo-button-border-color: var(--yo-color-$(val)-light-5);
+    --yo-button-hover-text-color: var(--yo-color-white);
+    --yo-button-hover-bg-color: var(--yo-color-$(val));
+    --yo-button-hover-border-color: var(--yo-color-$(val));
+    --yo-button-active-text-color: var(--yo-color-white);
+
+    --yo-button-disabled-text-color: var(--yo-color-$(val)-light-5);
+    --yo-button-disabled-bg-color: var(--yo-color-$(val)-light-9);
+    --yo-button-disabled-border-color: var(--yo-color-$(val)-light-8);
+  }
+}
+.yo-button--large {
+  --yo-button-size: 40px;
+  height: var(--yo-button-size);
+  padding: 12px 19px;
+  font-size: var(--yo-font-size-base);
+  border-radius: var(--yo-border-radius-base);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 12px;
+  }
+}
+.yo-button--small {
+  --yo-button-size: 24px;
+  height: var(--yo-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--yo-border-radius-base) - 1px);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 5px;
+  }
+  [class*='yo-icon'] {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.yo-button-group {
+  display: inline-block;
+  vertical-align: middle;
+
+  &::after {
+    clear: both;
+  }
+  & > :deep(.yo-button){
+    float: left;
+    position: relative;
+    margin-left: 0;
+    &:first-child{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-color: var(--yo-button-group-border-color);
+    }
+    &:last-child{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; 
+      border-left-color: var(--yo-button-group-border-color);
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+
+      border-left-color: var(--yo-button-group-border-color);
+      border-right-color: var(--yo-button-group-border-color);
+    }
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+    &:first-child:last-child {
+      border-top-right-radius: var(--yo-border-radius-base);
+      border-bottom-right-radius: var(--yo-border-radius-base);
+      border-top-left-radius: var(--yo-border-radius-base);
+      border-bottom-left-radius: var(--yo-border-radius-base);
+
+      &.is-round {
+        border-radius: var(--yo-border-radius-round);
+      }
+
+      &.is-circle {
+        border-radius: 50%;
+      }
+    }
+  }
+}
