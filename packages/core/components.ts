@@ -1,5 +1,6 @@
-import { YoButton } from '@toy-ui/components'
+import { YoButton, YoIcon } from '@toy-ui/components'
 import type { Plugin } from 'vue'
 export default [
-  YoButton
+  YoButton,
+  YoIcon
 ] as Plugin[]
