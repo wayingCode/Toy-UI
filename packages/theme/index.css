@@ -1,1 +1,66 @@
 @import './reset.css';
+:root {
+  /* colors */
+  --yo-color-white: #ffffff;
+  --yo-color-black: #000000;
+  --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
+  --yo-bg-color: #ffffff;
+  --yo-bg-color-page: #f2f3f5;
+  --yo-bg-color-overlay: #ffffff;
+  --yo-text-color-primary: #303133;
+  --yo-text-color-regular: #606266;
+  --yo-text-color-secondary: #909399;
+  --yo-text-color-placeholder: #a8abb2;
+  --yo-text-color-disabled: #c0c4cc;
+  --yo-border-color: #dcdfe6;
+  --yo-border-color-light: #e4e7ed;
+  --yo-border-color-lighter: #ebeef5;
+  --yo-border-color-extra-light: #f2f6fc;
+  --yo-border-color-dark: #d4d7de;
+  --yo-border-color-darker: #cdd0d6;
+  --yo-fill-color: #f0f2f5;
+  --yo-fill-color-light: #f5f7fa;
+  --yo-fill-color-lighter: #fafafa;
+  --yo-fill-color-extra-light: #fafcff;
+  --yo-fill-color-dark: #ebedf0;
+  --yo-fill-color-darker: #e6e8eb;
+  --yo-fill-color-blank: #ffffff;
+  
+  @each $val, $color in var(--colors) {
+    --yo-color-$(val): $(color);
+    @for $i from 3 to 9 {
+      --yo-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
+    }
+    --yo-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  /* border */
+  --yo-border-width: 1px;
+  --yo-border-style: solid;
+  --yo-border-color-hover: var(--yo-text-color-disabled);
+  --yo-border: var(--yo-border-width) var(--yo-border-style) var(--yo-border-color);
+  --yo-border-radius-base: 4px;
+  --yo-border-radius-small: 2px;
+  --yo-border-radius-round: 20px;
+  --yo-border-radius-circle: 100%;
+
+  /*font*/
+  --yo-font-size-extra-large: 20px;
+  --yo-font-size-large: 18px;
+  --yo-font-size-medium: 16px;
+  --yo-font-size-base: 14px;
+  --yo-font-size-small: 13px;
+  --yo-font-size-extra-small: 12px;
+  --yo-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+  --yo-font-weight-primary: 500;
+
+  /*disabled*/
+  --yo-disabled-bg-color: var(--yo-fill-color-light);
+  --yo-disabled-text-color: var(--yo-text-color-placeholder);
+  --yo-disabled-border-color: var(--yo-border-color-light);
+
+  /*animation*/
+  --yo-transition-duration: 0.4s;
+  --yo-transition-duration-fast: 0.2s;
+}
