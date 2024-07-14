@@ -31,7 +31,12 @@ defineExpose<ButtonInstance>({
 })
 </script>
 <template>
-  <component ref="_ref" class="yo-button" :is="tag" :type="tag === 'button' ? nativeType : void 0"
+  <component
+    ref="_ref"
+    class="yo-button"
+    :is="tag"
+    :type="tag === 'button' ? nativeType : void 0"
+    :autofocus="autofocus"
     :disabled="disabled || loading" :class="{
       [`yo-button--${type}`]: type,
       [`yo-button--${size}`]: size,
@@ -42,7 +47,9 @@ defineExpose<ButtonInstance>({
       'is-disabled': disabled
     }" @click="(e: MouseEvent) => useThrottle ? hanleButtonClickThrottle(e) : hanleButtonClick(e)">
     <template v-if="loading">
-      <yo-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" size="1x" :style="iconStyle" spin />
+      <slot name="loading">
+        <yo-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" size="1x" :style="iconStyle" spin />
+      </slot>
     </template>
     <yo-icon v-if="icon && !loading" :icon="icon" :style="iconStyle" size="1x"></yo-icon>
     <slot></slot>
