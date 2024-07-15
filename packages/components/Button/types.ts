@@ -27,3 +27,15 @@ export interface ButtonEmits {
 export interface ButtonInstance {
   ref: Ref<HTMLButtonElement | void>;
 }
+
+export interface ButtonGroupProps {
+  type?: ButtonType;
+  size?: ButtonSize;
+  disabled?: boolean;
+}
+
+export interface ButtonGroupContext {
+  type?: ButtonType;
+  size?: ButtonSize;
+  disabled?: boolean;
+}
