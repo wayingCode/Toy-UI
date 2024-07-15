@@ -139,6 +139,10 @@ importers:
       '@toy-ui/components':
         specifier: workspace:*
         version: link:../components
+    devDependencies:
+      vite-plugin-dts:
+        specifier: 3.9.1
+        version: 3.9.1(@types/node@20.14.10)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3(@types/node@20.14.10))
 
   packages/docs:
     devDependencies:
