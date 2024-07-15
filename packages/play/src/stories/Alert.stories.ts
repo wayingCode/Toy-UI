@@ -2,6 +2,7 @@ import type { StoryObj, Meta, ArgTypes } from '@storybook/vue3'
 import { ref, watch } from 'vue'
 import { fn } from '@storybook/test'
 import { YoAlert, type AlertInstance } from 'toy-ui'
+import 'toy-ui/dist/index.css'
 type Story = StoryObj<typeof YoAlert> & { argTypes?: ArgTypes }
 
 const meta: Meta<typeof YoAlert> = {
