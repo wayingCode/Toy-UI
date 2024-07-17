@@ -8,8 +8,9 @@ import type {
 import { each } from 'lodash-es';
 import { COLLAPSE_CTX_KEY } from './constants';
 import { debugWarn } from '@toy-ui/utils'
+const COMP_NAME = 'YoCollapse'
 defineOptions({
-  name: 'YoCollapse',
+  name: COMP_NAME,
 })
 
 const props = defineProps<CollapseProps>()
@@ -17,7 +18,7 @@ const emits = defineEmits<CollapseEmits>()
 const activeNames = ref<CollapseItemName[]>(props.modelValue || [])
 
 if (props.accordion && activeNames.value.length > 1) {
-  debugWarn('YoCollapse', 'The accordion mode should have one active name at most')
+  debugWarn(COMP_NAME, 'The accordion mode should have one active name at most')
 }
 
 function handleItemClick(item: CollapseItemName) {
