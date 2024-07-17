@@ -20,15 +20,17 @@
     }
   },
   "sideEffects": [
-    "./dist/index.css"
+    "./dist/index.css",
+    "./dist/theme/*.css"
   ],
   "type": "module",
   "scripts": {
-    "build": "run-s build:only move-style",
-    "build:only": "run-p build:es build:umd",
-    "build:umd": "vite build --config vite.umd.config.ts",
-    "build:es": "vite build --config vite.es.config.ts",
-    "move-style": "move-file dist/es/index.css dist/index.css"
+    "build": "run-p build:es build:umd",
+    "build:watch": "run-p build:es:watch build:umd:watch",
+    "build:umd": "vite build --config build/vite.umd.config.ts",
+    "build:es": "vite build --config build/vite.es.config.ts",
+    "build:es:watch": "vite build --config build/vite.es.config.ts --watch",
+    "build:umd:watch": "vite build --config build/vite.umd.config.ts --watch"
   },
   "keywords": [],
   "author": "",
