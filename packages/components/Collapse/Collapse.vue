@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide, ref, watch } from 'vue';
+import { provide, ref, watch, watchEffect } from 'vue';
 import type {
   CollapseItemName,
   CollapseProps,
@@ -17,9 +17,11 @@ const props = defineProps<CollapseProps>()
 const emits = defineEmits<CollapseEmits>()
 const activeNames = ref<CollapseItemName[]>(props.modelValue || [])
 
-if (props.accordion && activeNames.value.length > 1) {
-  debugWarn(COMP_NAME, 'The accordion mode should have one active name at most')
-}
+watchEffect(() => {
+  if (props.accordion && activeNames.value.length > 1) {
+    debugWarn(COMP_NAME, 'The accordion mode should have one active name at most')
+  }
+})
 
 function handleItemClick(item: CollapseItemName) {
   let _activeNames = [...activeNames.value]
